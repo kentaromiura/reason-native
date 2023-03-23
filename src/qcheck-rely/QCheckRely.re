@@ -58,7 +58,7 @@ module Matchers = {
 
   let makeTestMatcher = (createMatcher, accessorPath) =>
     createMatcher(({formatReceived, indent, _}, actualThunk, _) => {
-      let (QCheck.Test.Test(cell), rand: Random.State.t, long: bool) =
+      let (QCheck2.Test.Test(cell), rand: Random.State.t, long: bool) =
         actualThunk();
 
       switch (QCheck.Test.check_cell_exn(~long, ~rand, cell)) {
